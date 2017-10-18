@@ -7,6 +7,7 @@ colorscheme codedark
 syntax on
 
 call plug#begin()
+Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
