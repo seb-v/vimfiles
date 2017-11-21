@@ -45,4 +45,5 @@ nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
 nnoremap <Leader><Down> :cnext<CR>
 nnoremap <Leader><Up> :cnext<CR>
-nnoremap <Leader>f :Ggrep 
+nnoremap <Leader>f :Ggrep  <cword>
+nnoremap <Leader>s :Gstatus <CR>
