@@ -3,6 +3,8 @@ set nu
 set hlsearch
 set t_Co=256
 set tabstop=4
+set shiftwidth=4
+colorscheme codedark
 syntax on
 
 call plug#begin()
@@ -13,12 +15,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-colorscheme codedark
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline_powerline_fonts = 1
 
@@ -44,6 +46,11 @@ nnoremap <Leader>o :CtrlPBuffer<CR>
 nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
 nnoremap <Leader><Down> :cnext<CR>
-nnoremap <Leader><Up> :cnext<CR>
-nnoremap <Leader>f :Ggrep  <cword>
-nnoremap <Leader>s :Gstatus <CR>
+nnoremap <Leader><Up> :cprev<CR>
+"nnoremap <Leader>f :Ggrep 
+nnoremap <Leader>f :Ggrep <cword>
+nnoremap <Leader>s :Gstatus<CR>
+nnoremap <Leader>do :diffget<CR>
+nnoremap <Leader>dp :diffput<CR>
+
+"set diffopt+=vertical
