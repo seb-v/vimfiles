@@ -4,7 +4,6 @@ set hlsearch
 set t_Co=256
 set tabstop=4
 set shiftwidth=4
-colorscheme codedark
 syntax on
 
 call plug#begin()
@@ -18,6 +17,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+colorscheme codedark
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
