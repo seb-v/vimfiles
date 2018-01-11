@@ -15,6 +15,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 colorscheme codedark
@@ -41,7 +43,10 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
 let mapleader= "\<Space>"
+nmap <F8> :TagbarToggle<CR>
+nmap <F11> :!ctags -R --extras=+f .<CR>
 nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlPBuffer<CR>
 nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
@@ -53,4 +58,12 @@ nnoremap <Leader>s :Gstatus<CR>
 nnoremap <Leader>do :diffget<CR>
 nnoremap <Leader>dp :diffput<CR>
 
-"set diffopt+=vertical
+function! SwitchSourceHeader()
+    if (expand("%:e") == "cpp")
+        execute 'tag' join([expand("%:t:r"), "h"], ".")
+    else
+        execute 'tag' join([expand("%:t:r"), "cpp"], ".")
+    endif
+endfunction
+ 
+map <Leader>q :call SwitchSourceHeader()<CR>
