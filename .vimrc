@@ -5,6 +5,7 @@ set t_Co=256
 set tabstop=4
 set shiftwidth=4
 syntax on
+set autowrite
 
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -52,6 +53,7 @@ nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
 nnoremap <Leader><Down> :cnext<CR>
 nnoremap <Leader><Up> :cprev<CR>
+nnoremap <Leader>b :Gblame<CR>
 "nnoremap <Leader>f :Ggrep 
 nnoremap <Leader>f :Ggrep <cword>
 nnoremap <Leader>s :Gstatus<CR>
@@ -67,3 +69,11 @@ function! SwitchSourceHeader()
 endfunction
  
 map <Leader>q :call SwitchSourceHeader()<CR>
+map <C-k><C-o> :call SwitchSourceHeader()<CR>
+
+nnoremap <F12> :e $MYVIMRC<CR>
+nnoremap <C-s> :w <CR>
+
+"golang
+nnoremap <F5> : GoBuild<CR>
+nnoremap <C-F5> : GoRun<CR>
