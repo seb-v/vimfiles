@@ -3,6 +3,7 @@ set nu
 set hlsearch
 set t_Co=256
 set tabstop=4
+set expandtab
 set shiftwidth=4
 syntax on
 set autowrite
@@ -18,7 +19,12 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'majutsushi/tagbar'
+Plug 'shumphrey/fugitive-gitlab.vim'
 call plug#end()
+
+"custom shit
+let g:fugitive_gitlab_domains = ['http://vsi-git-001', 'http://vsi-git-001.siradel.local']
+
 
 colorscheme codedark
 map <C-n> :NERDTreeToggle<CR>
@@ -44,8 +50,14 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
 let mapleader= "\<Space>"
+set diffopt=iwhite
 nmap <F8> :TagbarToggle<CR>
 nmap <F11> :!ctags -R --extras=+f .<CR>
+nnoremap <F12> :e $MYVIMRC<CR>
+"file cleaup
+nnoremap <F10> :%retab<CR>
+nnoremap <F9> :e ++ff=dos<CR>
+
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>t :CtrlPTag<CR>
 nnoremap <Leader>o :CtrlPBuffer<CR>
@@ -53,7 +65,8 @@ nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
 nnoremap <Leader><Down> :cnext<CR>
 nnoremap <Leader><Up> :cprev<CR>
-nnoremap <Leader>b :Gblame<CR>
+nnoremap <Leader>b :Gblame -w<CR>
+nnoremap <Leader>i :Gbrowse<CR>
 "nnoremap <Leader>f :Ggrep 
 nnoremap <Leader>f :Ggrep <cword>
 nnoremap <Leader>s :Gstatus<CR>
@@ -71,9 +84,14 @@ endfunction
 map <Leader>q :call SwitchSourceHeader()<CR>
 map <C-k><C-o> :call SwitchSourceHeader()<CR>
 
-nnoremap <F12> :e $MYVIMRC<CR>
 nnoremap <C-s> :w <CR>
 
 "golang
 nnoremap <F5> : GoBuild<CR>
 nnoremap <C-F5> : GoRun<CR>
+"windows navigation
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+
