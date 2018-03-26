@@ -40,6 +40,12 @@ set guioptions-=r
 set guioptions-=L 
 
 set guifont=Consolas:h12
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+	set guifont=Monaco:h13
+  endif
+endif
 
 set backspace=2
 "set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.obj,*.pdb,*.hg,*.svn,*\\bin\\*,*\\bin64\*,*.dll,*.sdf,*.pch,*.cache,*.ilk,*.tlog,*.lib
@@ -84,14 +90,14 @@ endfunction
 map <Leader>q :call SwitchSourceHeader()<CR>
 map <C-k><C-o> :call SwitchSourceHeader()<CR>
 
+nnoremap <F12> :e $MYVIMRC<CR>
 nnoremap <C-s> :w <CR>
 
 "golang
 nnoremap <F5> : GoBuild<CR>
 nnoremap <C-F5> : GoRun<CR>
-"windows navigation
-nnoremap <C-L> <C-W>l
-nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-
+nmap <Leader>)  <F11>
+nmap <Leader>$  <F12>
+nmap <Leader>&  <F5>
+nmap <Leader>é  <C-F5>
+nmap <Leader>-  <F12>
