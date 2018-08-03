@@ -34,10 +34,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "let g:airline_powerline_fonts = 1
 
 "Remove gVim GUI stuffs
-set guioptions-=m 
-set guioptions-=T 
-set guioptions-=r 
-set guioptions-=L 
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 set guifont=Consolas:h12
 if has("unix")
@@ -73,7 +73,7 @@ nnoremap <Leader><Down> :cnext<CR>
 nnoremap <Leader><Up> :cprev<CR>
 nnoremap <Leader>b :Gblame -w<CR>
 nnoremap <Leader>i :Gbrowse<CR>
-"nnoremap <Leader>f :Ggrep 
+"nnoremap <Leader>f :Ggrep
 nnoremap <Leader>f :Ggrep <cword>
 nnoremap <Leader>s :Gstatus<CR>
 nnoremap <Leader>do :diffget<CR>
@@ -86,7 +86,7 @@ function! SwitchSourceHeader()
         execute 'tag' join([expand("%:t:r"), "cpp"], ".")
     endif
 endfunction
- 
+
 map <Leader>q :call SwitchSourceHeader()<CR>
 map <C-k><C-o> :call SwitchSourceHeader()<CR>
 
@@ -101,3 +101,9 @@ nmap <Leader>$  <F12>
 nmap <Leader>&  <F5>
 nmap <Leader>é  <C-F5>
 nmap <Leader>-  <F12>
+
+"reformating C++ files
+"map <C-I> :pyf d:/llvm/share/clang/clang-format.py<cr>
+
+"#    Deleting trailing spaces
+autocmd BufWritePre * %s/\s\+$//e
