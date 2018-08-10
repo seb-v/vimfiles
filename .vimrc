@@ -17,6 +17,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'airblade/vim-gitgutter'
+"Plug 'C:/ProgramData/chocolatey/lib/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'majutsushi/tagbar'
 Plug 'shumphrey/fugitive-gitlab.vim'
@@ -49,16 +51,19 @@ endif
 
 set backspace=2
 "set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.obj,*.pdb,*.hg,*.svn,*\\bin\\*,*\\bin64\*,*.dll,*.sdf,*.pch,*.cache,*.ilk,*.tlog,*.lib
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files sources -co --exclude-standard']
 let g:ctrlp_by_filename = 0
 let g:ctrlp_max_files=0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_regexp = 1
 let g:ctrlp_by_filename = 1
+let g:ctrlp_lazy_update = 1
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 let mapleader= "\<Space>"
 set diffopt=iwhite
 nmap <F8> :TagbarToggle<CR>
-nmap <F11> :!ctags -R --extras=+f .<CR>
+"nmap <F11> :!ctags -R --extras=+f .<CR>
+nmap <F11> :!ctags -R --sort=yes --extras=+fq --fields=+iaS --languages=C++ .<CR>
 nnoremap <F12> :e $MYVIMRC<CR>
 "file cleaup
 nnoremap <F10> :%retab<CR>
