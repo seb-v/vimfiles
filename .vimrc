@@ -63,10 +63,9 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 let mapleader= "\<Space>"
 set diffopt=iwhite
 nmap <F8> :TagbarToggle<CR>
-"nmap <F11> :!ctags -R --extras=+f .<CR>
-nmap <F11> :!ctags -R --sort=yes --extras=+fq --fields=+iaS --languages=C++ .<CR>
+nmap <F11> :!ctags -R --sort=yes --extra=+f --fields=+iaS --languages=C++ .<CR>
 nnoremap <F12> :e $MYVIMRC<CR>
-"file cleaup
+"file cleanup
 nnoremap <F10> :%retab<CR>
 nnoremap <F9> :e ++ff=dos<CR>
 
