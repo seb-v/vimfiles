@@ -9,3 +9,6 @@ sudo apt-get install python3
 
 #ctags
 sudo apt install exuberant-ctags
+
+#Install Ag
+sudo apt-get install silversearcher-ag

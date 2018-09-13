@@ -70,9 +70,10 @@ nnoremap <F12> :e $MYVIMRC<CR>
 nnoremap <F10> :%retab<CR>
 nnoremap <F9> :e ++ff=dos<CR>
 
-nnoremap <Leader>p :CtrlP<CR>
-nnoremap <Leader>t :CtrlPTag<CR>
-nnoremap <Leader>o :CtrlPBuffer<CR>
+nnoremap <Leader>p :Files<CR>
+nnoremap <Leader>t :Tags<CR>
+nnoremap <Leader>o :Buffers<CR>
+nnoremap <Leader>c :Commits<CR>
 nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
 nnoremap <Leader><Down> :cnext<CR>
