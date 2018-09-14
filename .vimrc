@@ -72,6 +72,7 @@ nnoremap <F9> :e ++ff=dos<CR>
 nnoremap <Leader>p :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>o :Buffers<CR>
+nnoremap <Leader>h :History<CR>
 nnoremap <Leader>c :Commits<CR>
 nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
