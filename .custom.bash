@@ -1,0 +1,6 @@
+export GIT_PS1_SHOWDIRTYSTATE=
+export GIT_PS1_SHOWSTASHSTATE=
+export GIT_PS1_SHOWUNTRACKEDFILES=
+export GIT_PS1_SHOWUPSTREAM=verbose GIT_PS1_DESCRIBE_STYLE=branch
+export PROMPT_COMMAND='__git_ps1 "\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\]" " \\\$ "'
+export PATH=$PATH:~/go/bin

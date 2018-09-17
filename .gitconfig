@@ -1,0 +1,5 @@
+[alias]
+	lg = log --all --decorate --oneline --graph
+	st = status
+[core]
+	editor = vim
