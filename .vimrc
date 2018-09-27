@@ -68,12 +68,14 @@ nnoremap <F12> :e $MYVIMRC<CR>
 "file cleanup
 nnoremap <F10> :%retab<CR>
 nnoremap <F9> :e ++ff=dos<CR>
+let WordValue = expand("<cword>")
 
 nnoremap <Leader>p :Files<CR>
 nnoremap <Leader>t :Tags<CR>
 nnoremap <Leader>o :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>c :Commits<CR>
+nnoremap <Leader>H :History:<CR>
 nnoremap <Leader>g :Glog -- % \| copen<CR>
 nnoremap <Leader>a :cclose<CR>
 nnoremap <Leader><Down> :cnext<CR>
@@ -81,7 +83,7 @@ nnoremap <Leader><Up> :cprev<CR>
 nnoremap <Leader>b :Gblame -w<CR>
 nnoremap <Leader>i :Gbrowse<CR>
 "nnoremap <Leader>f :Ggrep
-nnoremap <Leader>f :Ggrep <cword>
+nnoremap <Leader>f :Rg <C-R><C-W><CR>
 nnoremap <Leader>s :Gstatus<CR>
 nnoremap <Leader>do :diffget<CR>
 nnoremap <Leader>dp :diffput<CR>
@@ -114,3 +116,6 @@ nmap <Leader>-  <F12>
 
 "#    Deleting trailing spaces
 autocmd BufWritePre * %s/\s\+$//e
+
+set ignorecase
+set smartcase
