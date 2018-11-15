@@ -23,6 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'majutsushi/tagbar'
 Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 "custom shit
@@ -63,7 +64,7 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 let mapleader= "\<Space>"
 set diffopt=iwhite
 nmap <F8> :TagbarToggle<CR>
-nmap <F11> :!ctags -R --sort=yes --extra=+f --fields=+iaS --languages=C++ .<CR>
+nmap <F4> :!ctags -R --sort=yes --extra=+f --fields=+iaS --languages=C++ .<CR>
 nnoremap <F12> :e $MYVIMRC<CR>
 "file cleanup
 nnoremap <F10> :%retab<CR>
@@ -119,3 +120,18 @@ autocmd BufWritePre * %s/\s\+$//e
 
 set ignorecase
 set smartcase
+
+" Syntax python
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": ["python"],
+    \ "passive_filetypes": [] }
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
